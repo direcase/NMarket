@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Document</title>
+    
+</head>
+<body>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+            
+        }
+        body{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        footer, main, header{
+            padding-right: 15%;
+            padding-left: 15%;
+        }
+        
+        .header-left-side{
+            display: grid;
+            grid-gap: 15px;
+            grid-template-columns: 570px 38px 139px 36px;
+        }
+        .head-main-block{
+            height: 110px;
+            background-color: #01357F;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            grid-gap: 50px;
+        }
+        .registrate-btn, .search-btn, .shopping-cart-btn{
+            background-color: #F4A837;
+            border-radius: 20px;
+            color: #FFFF;
+        }
+        .registrate-btn, .search-btn, .search-input {
+            height: 43px;
+        }
+        .login-btn{
+            background-color:  #01357F;
+            color: #FFFF;
+        }
+        .search-input{
+            width: 100%;
+            border-radius: 20px;
+        }
+        .search-box{
+            position: relative;
+        }
+        .search-btn,.search-box, .search-input,  .registrate-btn, .shopping-cart-btn{
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        .search-btn{
+            width: 139px;
+            position: absolute;
+            transform: translateX(-140px);
+        }
+        .shopping-cart-btn{
+            width: 36px;
+            height: 36px;
+        }
+        .logo-company-name{
+            margin: auto;
+            font-size: 25px;
+            font-weight: 500;
+            }
+        footer{
+            background-color: #20211D;
+            padding-bottom: 100px;
+            padding-top: 50px;
+        }
+        .footer-table-header{
+            color: #FFFFFF;
+            font-size: 35px;
+            width: 27%;
+            text-align: left;
+        }
+        .footer-table-contacts{
+            color: #F0B613;
+            font-size: 20px;
+            margin: auto;
+        }
+        .footer-table-categories{
+            font-size: 16px;
+            line-height: 19px;
+            color: #808080;
+            margin: auto;
+            padding: auto;
+        }
+        .footer-table{
+            border-spacing: 10px;
+        }
+        main{
+            padding-bottom: 100px;
+            background-image:  linear-gradient(to right, rgba(232, 232, 232, 0.9), rgba(232, 232, 232, 0.9)), url("./img/background-image.png");
+            position: relative;
+            }
+            
+        .menu-navbar-section{
+            height: 60px;
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            grid-gap: 20px;
+            padding-top: 20px;
+            padding-bottom: 80px;
+        }
+        .main-category-section{
+            background-color: #F0A306;
+            color: #FFFFFF;
+            height: 60px;
+            text-align: center;
+            border-radius: 30px;
+            font-size: 16px;
+            position: relative;
+
+        }
+        .main-category-section-text{
+            margin: auto;position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;right: 0;width: 50%;
+            height: 40%;
+            display: flex;
+            flex-direction: row;
+        }
+        .main-category-section-text picture{
+            margin-left: 30px;
+            border-radius: 0px;
+        }
+        .main-navbar{
+            border-radius: 30px;
+            font-size: 16px;
+            text-align: center;
+            background-color: white;
+            height: 60px;
+            display: grid;
+            padding-right: 10%;
+            padding-left: 10%;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        .main-navbar a{
+           text-decoration: none;
+           color: black;
+           margin: auto;
+        }
+
+
+        .slideshow-container {
+            border-radius: 20px;
+            max-width: 1172px;
+          position: relative;
+          margin: auto;
+        }
+        img{
+            border-radius: 20px;
+        }
+        
+        .mySlides {
+            border-radius: 20px;
+          display: none;
+          
+          font-size: 55px;
+        }
+        
+        
+        .slide-text {
+          color: #f2f2f2;
+          bottom: 280px;
+        }
+        .slide-text-sale, .slide-text, .slide-dots{
+            
+          position: absolute;
+            left: 50px;
+          width: 50%;
+        }
+        .slide-text-sale{
+            font-weight: 900;
+            color: #F4A837 ;
+            bottom: 160px;
+            display: flex;
+            flex-direction: column;
+            font-style: italic;
+        }
+        
+        .numbertext {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+        }
+        .slide-text-button{
+            font-weight: 500;
+            width: 30%;
+            height: 48px;
+            background: #F4A837;
+        border-radius: 20px;
+        }
+        .slide-dots{
+            bottom: 30px;
+        }
+        
+        .dot {
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+        
+        .active, .dot:hover {
+          background-color: #717171;
+        }
+        
+        .fade {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1.5s;
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+        
+        @-webkit-keyframes fade {
+          from {opacity: .4}
+          to {opacity: 1}
+        }
+        
+        @keyframes fade {
+          from {opacity: .4}
+          to {opacity: 1}
+        }
+        .header-spare-parts{
+            font-weight: 500;
+            padding-top: 60px;
+            padding-bottom: 30px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .spare-parts-content{
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+        }
+        .special-offers-content{
+            background-color: #fff;
+            
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+        }
+        .spare-parts-container, .special-offers-container{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3,1fr);
+            grid-gap: 15px;
+        }
+        .spare-parts-img{
+            width:50%;
+        }
+        .special-offer-desc{
+            margin: 10px;
+        }
+        .special-offers-img{
+            width: 100%;
+        }
+        
+        .special-offer-category{
+            margin-bottom: 10px;
+            color: #979797;
+        }
+        .special-offer-price{
+            margin-top: 30px;
+            float: left;
+        }
+        .special-offer-shopping-cart{
+            margin-top: 30px;
+            padding: 5px;
+            padding-left: 18px;
+            padding-right: 18px;
+            float: right;
+            background-color: #F4A837;
+            border-radius: 20px;
+            
+        }
+        .help-in-choosing{
+            height: 170px;
+            margin-top: -200px;
+            border-radius: 30px;
+            background-image:  linear-gradient(to right, rgba(13, 45, 89, 0.9), rgba(13, 45, 89, 0.9)), url('./img/help-back-img.png');
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: row;
+        }
+        .help-in-choice-content{
+            text-align: start;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 25%;
+        }
+        .help-in-choice-content, .get-help-in-choice{
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        .help-header{
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        .get-help-in-choice{
+            padding-left: 40px;
+            padding-right: 40px;
+            height: 60px;
+            background-color:  #F4A837;
+            border-radius: 40px;
+            color: #000;
+        }
+        .payment-delivery-content{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+        .payment-content, .delivery-content{
+            background-color: #FFFF;
+            border-radius: 30px;
+        }
+        .payment-delivery-header{
+            text-align: center;
+            font-size: 25px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        .payment-decs-header, .delivery-decs-header{
+            font-weight: 500;
+        }
+        .payment-content, .delivery-content{
+            padding: 20px;
+        }
+        .payment-paragraph, .delivery-decs-header{
+            margin: 20px;   
+        }
+        .payment-paragraph{
+            font-weight: 300;
+        }
+        .delivery-partners-images{
+            margin-top: 15px;
+        }
+        .delivery-partners-images img{
+            margin-right: 15px;
+        }
+        .payment-paragraph-content{
+            margin: 10px;
+        }
+    
+      
+    </style>
+
+    <header class="head-main-block">
+        <div class="logo-company-name">
+            <picture>
+                <img src="./img/comp-logo.png" alt="company logo">
+            </picture>
+        </div>
+        <div class="header-left-side">
+            
+            <div class="search-box">
+                <input type="text" class="search-input" name="search-text" placeholder="      Введите название интересующего вас товара">
+                <button class="search-btn"><img src="./img/search.png" alt="search icon"> Поиск</button>
+
+            </div>
+
+            <button class="login-btn">
+                Вход
+            </button>
+
+            <button class="registrate-btn">
+                Регистрация
+            </button>
+            <button class="shopping-cart-btn">
+                <img src="./img/shopping-basket.png" alt="shopping cart icon">
+            </button>
+
+        </div>
+
+    </header>
+
+    <main>
+        <div class="menu-navbar-section">
+            <div class="main-category-section">
+                <div class="main-category-section-text"><span >КАТЕГОРИИ</span>
+                    <picture>
+                    <img src="./img/navbar-icon.png" alt="navbar icon">
+                </picture></div>
+                
+
+            </div>
+
+            <div class="main-navbar">
+                <a href="#">Главная</a>
+                <a href="#">Новости</a>
+                <a href="#">Доставка</a>
+                <a href="#">Оплата</a>
+                <a href="#">Контакты</a>
+                
+            </div>
+
+        </div>
+
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <img src="./img/clide-image.png" style="width:100%">
+              <div class="slide-text">Замена колодок со скидкой
+
+              </div>
+              <div class="slide-text-sale">
+                  B 30%
+                  <button class="slide-text-button">
+                      Подробнее
+                  </button>
+              </div>
+            </div>
+          
+            <div class="mySlides fade">
+                <img src="./img/clide-image.png" style="width:100%">
+                <div class="slide-text">Замена колодок со скидкой
+  
+                </div>
+                <div class="slide-text-sale">
+                    B 30%
+                    <button class="slide-text-button">
+                        Подробнее
+                    </button>
+                </div>
+            </div> 
+            <div class="mySlides fade">
+                <img src="./img/clide-image.png" style="width:100%">
+                <div class="slide-text">Замена колодок со скидкой
+  
+                </div>
+                <div class="slide-text-sale">
+                    B 30%
+                    <button class="slide-text-button">
+                        Подробнее
+                    </button>
+                </div>
+            </div>
+           <div class="slide-dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        
+        </div>
+
+        <div class="header-spare-parts">Запчасти для моделей</div>
+
+        <div class="spare-parts-container">
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" width="92px" height="50px" src="./img/CAT_logo 1.png" alt="cat logo">
+            </div>
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" src="./img/shantui.png" alt="logo of shantui">
+            </div>
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" src="./img/komatsu_logo 1.png" alt="komatsu logo">
+            </div>
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" src="./img/johndeere 1.png" alt="john deere logo ">
+            </div>
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" src="./img/jcb.png" width="246px" alt="jcb logo">
+            </div>
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" src="./img/hyundai.png" alt="hyundai logo">
+            </div>
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" src="./img/hitachi.png" alt="hitachi logo">
+            </div>
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" src="./img/hidromek.png" alt="hidromek logo">
+            </div>
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" src="./img/case-constructio.png" alt="case construction logo">
+            </div>
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" src="./img/daewoo.png" alt="daewoo logo">
+            </div>
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" src="./img/doosan.png" alt="doosan logo">
+            </div>
+            <div class="spare-parts-content">
+                <img class="spare-parts-img" src="./img/volvo.png" alt="volvo logo">
+            </div>
+        </div>
+
+        <div class="header-spare-parts">Спецпредложения</div>
+
+        <div class="special-offers-container">
+            <div class="special-offers-content">
+                <img class="special-offers-img" src="./img/special-offer.png" alt="sale and product image">
+                <div class="special-offer-desc">
+                    <div class="special-offer-category">Категория</div>
+                    <div class="special-offer-name">Радиятор название</div>
+                    <div class="special-offer-bottom">
+                        <div class="special-offer-price">9000тг</div>
+                        <div class="special-offer-shopping-cart"><img src="./img/shopping-basket.png" alt="shopping cart"></div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="special-offers-content">
+                <img class="special-offers-img" src="./img/special-offer.png" alt="sale and product image">
+                <div class="special-offer-desc">
+                    <div class="special-offer-category">Категория</div>
+                    <div class="special-offer-name">Радиятор название</div>
+                    <div class="special-offer-bottom">
+                        <div class="special-offer-price">9000тг</div>
+                        <div class="special-offer-shopping-cart"><img src="./img/shopping-basket.png" alt="shopping cart"></div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="special-offers-content">
+                <img class="special-offers-img" src="./img/special-offer.png" alt="sale and product image">
+                <div class="special-offer-desc">
+                    <div class="special-offer-category">Категория</div>
+                    <div class="special-offer-name">Радиятор название</div>
+                    <div class="special-offer-bottom">
+                        <div class="special-offer-price">9000тг</div>
+                        <div class="special-offer-shopping-cart"><img src="./img/shopping-basket.png" alt="shopping cart"></div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="special-offers-content">
+                <img class="special-offers-img" src="./img/special-offer.png" alt="sale and product image">
+                <div class="special-offer-desc">
+                    <div class="special-offer-category">Категория</div>
+                    <div class="special-offer-name">Радиятор название</div>
+                    <div class="special-offer-bottom">
+                        <div class="special-offer-price">9000тг</div>
+                        <div class="special-offer-shopping-cart"><img src="./img/shopping-basket.png" alt="shopping cart"></div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="special-offers-content">
+                <img class="special-offers-img" src="./img/special-offer.png" alt="sale and product image">
+                <div class="special-offer-desc">
+                    <div class="special-offer-category">Категория</div>
+                    <div class="special-offer-name">Радиятор название</div>
+                    <div class="special-offer-bottom">
+                        <div class="special-offer-price">9000тг</div>
+                        <div class="special-offer-shopping-cart"><img src="./img/shopping-basket.png" alt="shopping cart"></div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="special-offers-content">
+                <img class="special-offers-img" src="./img/special-offer.png" alt="sale and product image">
+                <div class="special-offer-desc">
+                    <div class="special-offer-category">Категория</div>
+                    <div class="special-offer-name">Радиятор название</div>
+                    <div class="special-offer-bottom">
+                        <div class="special-offer-price">9000тг</div>
+                        <div class="special-offer-shopping-cart"><img src="./img/shopping-basket.png" alt="shopping cart"></div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="special-offers-content">
+                <img class="special-offers-img" src="./img/special-offer.png" alt="sale and product image">
+                <div class="special-offer-desc">
+                    <div class="special-offer-category">Категория</div>
+                    <div class="special-offer-name">Радиятор название</div>
+                    <div class="special-offer-bottom">
+                        <div class="special-offer-price">9000тг</div>
+                        <div class="special-offer-shopping-cart"><img src="./img/shopping-basket.png" alt="shopping cart"></div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="special-offers-content">
+                <img class="special-offers-img" src="./img/special-offer.png" alt="sale and product image">
+                <div class="special-offer-desc">
+                    <div class="special-offer-category">Категория</div>
+                    <div class="special-offer-name">Радиятор название</div>
+                    <div class="special-offer-bottom">
+                        <div class="special-offer-price">9000тг</div>
+                        <div class="special-offer-shopping-cart"><img src="./img/shopping-basket.png" alt="shopping cart"></div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="help-in-choosing">
+            <div class="help-in-choice-content">
+                <div class="help-header">
+                    Нужна помощь в выборе запчастей?
+                </div>
+                <div class="help-description">
+                    Оставьте заявку на бесплатную консультацию у нашего специалиста
+                </div>
+            </div>
+            <button class="get-help-in-choice">
+                Получить <div>консультацию</div>
+            </button>
+
+        </div>
+        <div class="header-spare-parts">Оплата и доставка</div>
+
+        <div class="payment-delivery-content">
+            <div class="payment-content">
+                <div class="payment-delivery-header">Способы оплаты</div>
+                <div class="payment-decs-top">
+                    <div class="payment-decs-header"><img src="./img/human-icon.png" alt="human-icon">   Для юридических лиц </div>
+                    <div class="payment-paragraph">
+                        <div class="payment-paragraph-content"><img src="./img/tic-icon.png" alt="tic icon">   Оплата по безналичному счету в рублях с НДС</div>
+                        <div class="payment-paragraph-content"><img src="./img/tic-icon.png" alt="tic icon">   Отгружаем заказы по платежноному поручению с отметкой банка</div>
+                    </div>
+
+                </div>
+                <div class="payment-decs-bottom">
+                    <div class="payment-decs-header"><img src="./img/human-icon.png" alt="human-icon">   Для частных лиц </div>
+                    <div class="payment-paragraph">
+                        <div class="payment-paragraph-content"><img src="./img/tic-icon.png" alt="tic icon">   Перевод на карту Сберьанка (Самый удобный способ оплаты для клиентов из регионов)</div>
+                        <div class="payment-paragraph-content"><img src="./img/tic-icon.png" alt="tic icon">   Банковский перевод в любом банке</div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="delivery-content">
+                <div class="payment-delivery-header">Способы доставки</div>
+                <div class="payment-paragraph" >Мы осуществляем доставку спецтехники по всей территории РФ, а также в страны СНГ.</div>
+                <div class="payment-paragraph"> В зависимости от вашего географического полодения, условия доставки, а также сроки получения - могут быть разными. Мы всегда максимально эффективно стараемся оптимизировать процесс доставки, чтобы сотрудничество между нами было комфортным.</div>
+                <div class="delivery-decs-header"><img src="./img/delivery-icon.png" alt="delivery icon"> Наши партнеры по доставке
+                    <div class="delivery-partners-images"><img src="./img/CAT_logo 1.png" width="48px" alt="cat logo"><img src="./img/CAT_logo 1.png" width="48px" alt="cat logo"><img src="./img/CAT_logo 1.png" width="48px" alt="cat logo">
+                        <img src="./img/CAT_logo 1.png" width="48px" alt="cat logo"><img src="./img/CAT_logo 1.png" width="48px" alt="cat logo"></div>
+                        
+                    </div></div>
+            
+
+        </div>
+
+    </main>
+
+
+    <footer>
+            <table class="footer-table">
+                <tr>
+                    <th class="footer-table-header">Контакты </th>
+                    <th class="footer-table-header">Категории</th>
+                    <th  class="footer-table-header"></th>
+                </tr>
+                <tr>
+                    <td class="footer-table-contacts"><img src="./img/phone-icon.png" alt="phone icon"> 8 707 555 6565</td>
+                    <td class="footer-table-categories">Двигатель</td>
+                    <td class="footer-table-categories"> Ходовая часть</td>
+                    <td class="footer-table-categories">
+                        Режущие
+                    </td>
+                </tr>
+                <tr>
+                    <td class="footer-table-contacts"  rowspan="2"><img src="./img/mail-icon.png" alt="mail icon"> nmarket@gmail.com</td>
+                    <td class="footer-table-categories">Топливная система</td>
+                    <td class="footer-table-categories" rowspan="2">Электроника</td>
+            
+                    <td class="footer-table-categories" rowspan="2">Навесное оборудование</td>
+                </tr>
+                <tr>
+                    <td class="footer-table-categories">Гидравлика</td>
+                </tr>
+                <tr>
+                    <td class="footer-table-contacts"><img src="./img/place-icon.png" alt="geoposition icon"> г.Нур-Султан, ул.33</td>
+                    <td class="footer-table-categories">Трансмиссия</td>
+                    <td class="footer-table-categories">Обогрев и вентиляция</td>
+                    <td class="footer-table-categories">Фильтра</td>
+                </tr>
+            </table>
+    </footer>
+
+    
+
+    <script>var slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}
+          slides[slideIndex-1].style.display = "block";
+          setTimeout(showSlides, 6000); 
+        }</script>
+    
+</body>
+</html>
